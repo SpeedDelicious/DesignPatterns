@@ -2,7 +2,7 @@ package at.fh.oo.java.Test;
 
 public class EngineControl {
 
-    int selectAlgo;
+    private int selectAlgo;
 
     public EngineControl(int selectAlgo) {
         this.selectAlgo = selectAlgo;
@@ -24,6 +24,4 @@ public class EngineControl {
             superSpar.gasUsage();
         }
     }
-
-
 }

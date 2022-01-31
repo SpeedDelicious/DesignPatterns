@@ -5,10 +5,9 @@ public class Main {
 
         Car car = new Car(30);
         int carSpeed = car.speed;
-
         SelectAlgo selectAlgo = new SelectAlgo();
 
-       ;EngineControl engineControl = new EngineControl(selectAlgo.rangeReached(carSpeed));
+       EngineControl engineControl = new EngineControl(selectAlgo.rangeReached(carSpeed));
        engineControl.algoUse();
     }
 }
