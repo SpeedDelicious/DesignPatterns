@@ -31,13 +31,14 @@ public class HTLLinkedList implements HTLList{
 
             if(i == index - 1){
                 pointer = pointer.getNext().getNext();
-                System.out.println(pointer);
+                System.out.println("Wert bei Index " + i + " wurde removed");
             }
         }
     }
 
     @Override
     public void get(int index) {
+        
         Node pointer = this.root;
 
         for (int i = 0; i < index; i++){
