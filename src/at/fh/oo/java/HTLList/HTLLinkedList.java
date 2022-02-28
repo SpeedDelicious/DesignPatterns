@@ -65,7 +65,7 @@ public class HTLLinkedList implements HTLList{
         Node currentNode = root, previousNode = null;
 
         //if root contains wanted value
-        if(currentNode != null && currentNode.getCurrent() == value){
+        if(currentNode != null && currentNode.getCurrentValue() == value){
             root = currentNode.getNext();
 
             System.out.println("Element with value " + value + "got removed");
@@ -74,7 +74,7 @@ public class HTLLinkedList implements HTLList{
         }
 
         //if any other index contains wanted value
-        while(currentNode != null && currentNode.getCurrent() != value){
+        while(currentNode != null && currentNode.getCurrentValue() != value){
             previousNode = currentNode;
             currentNode = currentNode.getNext();
         }
@@ -94,7 +94,19 @@ public class HTLLinkedList implements HTLList{
 
     @Override
     public void get(int index) {
-        
+        Node currentNode = root;
+        int counter = 0;
+
+        //Any other element but head and not out of range
+        while(currentNode != null){
+            if(counter == index){
+                System.out.println("Element: " + currentNode.getCurrentValue() + " found at position " + index);
+                break;
+            }
+            counter++;
+            currentNode = currentNode.getNext();
+
+        }
 
     }
 
@@ -104,7 +116,7 @@ public class HTLLinkedList implements HTLList{
         System.out.println("HTL LinkedList: ");
 
         while(currentNode != null){
-            System.out.println(currentNode.getCurrent() + " ");
+            System.out.println(currentNode.getCurrentValue() + " ");
 
             currentNode = currentNode.getNext();
         }

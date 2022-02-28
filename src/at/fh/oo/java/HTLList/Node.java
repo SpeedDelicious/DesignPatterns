@@ -16,7 +16,7 @@ public class Node {
         this.next = next;
     }
 
-    public int getCurrent(){
+    public int getCurrentValue(){
         return value;
     }
 }

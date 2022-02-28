@@ -11,6 +11,8 @@ public class Main {
         htlLinkedList.add(13);
         htlLinkedList.add(20);
 
+        htlLinkedList.get(2);
+
         htlLinkedList.printList();
 
         htlLinkedList.removeAtIndex(2, htlLinkedList);
