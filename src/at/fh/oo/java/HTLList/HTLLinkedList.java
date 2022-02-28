@@ -47,4 +47,17 @@ public class HTLLinkedList implements HTLList{
             }
         }
     }
+
+    @Override
+    public void printList() {
+        Node currentNode = root;
+        Node temp = new Node(2);
+        System.out.println("HTL LinkedList: ");
+
+        while(currentNode != null){
+            System.out.println(currentNode.getCurrent() + " ");
+
+            currentNode = currentNode.getNext();
+        }
+    }
 }

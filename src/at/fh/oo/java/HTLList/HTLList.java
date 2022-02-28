@@ -4,4 +4,5 @@ public interface HTLList {
     public void add(int value);
     public void remove(int index);
     public void get(int index);
+    public void printList();
 }
