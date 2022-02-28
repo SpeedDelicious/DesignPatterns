@@ -23,35 +23,84 @@ public class HTLLinkedList implements HTLList{
     }
 
     @Override
-    public void remove(int index) {
+    public HTLLinkedList removeAtIndex(int index, HTLLinkedList htlLinkedList) {
 
-        Node pointer = this.root;
-        for(int i = 0; i < index; i++){
-            pointer = pointer.getNext();
+        Node currentNode = root, previousNode = null;
+        int counter = 0;
 
-            if(i == index - 1){
-                pointer = pointer.getNext().getNext();
-                System.out.println("Wert bei Index " + i + " wurde removed");
+        //Should the head be deleted?
+        if(index == 0 && currentNode != null){
+            root = currentNode.getNext();
+
+            System.out.println("Element at position " + index + " got removed");
+
+            return htlLinkedList;
+        }
+
+        //Any other element but head and not out of range
+        while(currentNode != null){
+            if(counter == index){
+                previousNode.setNext(currentNode.getNext());
+
+                System.out.println("Element at position " + index + " got removed");
+                break;
+            }
+            else{
+                previousNode = currentNode;
+                currentNode = currentNode.getNext();
+                counter++;
             }
         }
+
+        //Element is out of range
+        if(currentNode == null){
+            System.out.println("Index is out of range (" + index + ")");
+        }
+
+        return htlLinkedList;
+    }
+
+    @Override
+    public HTLLinkedList removeAtValue(int value, HTLLinkedList htlLinkedList) {
+        Node currentNode = root, previousNode = null;
+
+        //if root contains wanted value
+        if(currentNode != null && currentNode.getCurrent() == value){
+            root = currentNode.getNext();
+
+            System.out.println("Element with value " + value + "got removed");
+
+            return htlLinkedList;
+        }
+
+        //if any other index contains wanted value
+        while(currentNode != null && currentNode.getCurrent() != value){
+            previousNode = currentNode;
+            currentNode = currentNode.getNext();
+        }
+        if(currentNode != null){
+            previousNode.setNext(currentNode.getNext());
+
+            System.out.println("Element with value " + value + " got removed");
+        }
+
+        //no index contains wanted value
+        if(currentNode == null){
+            System.out.println("Element with value " + value + " not found");
+        }
+
+        return htlLinkedList;
     }
 
     @Override
     public void get(int index) {
         
-        Node pointer = this.root;
 
-        for (int i = 0; i < index; i++){
-            if(i == index - 1){
-                System.out.println(pointer.getNext());
-            }
-        }
     }
 
     @Override
     public void printList() {
         Node currentNode = root;
-        Node temp = new Node(2);
         System.out.println("HTL LinkedList: ");
 
         while(currentNode != null){

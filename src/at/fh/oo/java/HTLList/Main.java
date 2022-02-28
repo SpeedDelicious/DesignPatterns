@@ -11,8 +11,14 @@ public class Main {
         htlLinkedList.add(13);
         htlLinkedList.add(20);
 
-        htlLinkedList.remove(3);
+        htlLinkedList.printList();
 
-        htlLinkedList.get(2);
+        htlLinkedList.removeAtIndex(2, htlLinkedList);
+
+        htlLinkedList.printList();
+
+        htlLinkedList.removeAtValue(20, htlLinkedList);
+
+        htlLinkedList.printList();
     }
 }
